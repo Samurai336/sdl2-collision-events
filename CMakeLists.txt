@@ -2,7 +2,7 @@
 cmake_minimum_required (VERSION 2.6 FATAL_ERROR) 
 #set (CMAKE_VERBOSE_MAKEFILE ON)
 
-set (App_Name "check-sdl-version") 
+set (App_Name "sdl-collision-events") 
 if(App_Name STREQUAL "")
 	message(FATAL_ERROR "You Must set the App_Name varable")
 endif() 
@@ -11,18 +11,21 @@ project (${App_Name})
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
+
 ##################################################################
 
-set (Build_Dir_ok "TRUE") 
+set (Build_Dir_OK "TRUE")
 string (REGEX MATCH "^${CMAKE_SOURCE_DIR}" In_Sub_Dir ${CMAKE_BINARY_DIR})
 if (In_Sub_Dir)
-	string (REGEX MATCH "$^{CMAKE_SOURCE_DIR}/build" In_Build_Dir ${CMAKE_BINARY_DIR})
+  string (REGEX MATCH "^${CMAKE_SOURCE_DIR}/build" In_Build_Dir ${CMAKE_BINARY_DIR})
+  if (NOT In_Build_Dir)
+    set (Build_Dir_OK "FALSE")
+  endif ()
+endif ()
 
-	if(NOT In_Build_Dir)
-		set(Build_Dir_OK "FALSE")
-	endif()
-endif() 
-
+if (NOT Build_Dir_OK)
+  message (FATAL_ERROR "You must run cmake from a directory that is not in your source tree, or that is in a special subdirectory of the tree whose name begins with ‘build’.")
+endif ()
 
 ###########################################################################
 
@@ -33,8 +36,8 @@ endif()
 
 ###############################################################################
 
-file (GLOB SRCS SDLTut8/*.c SDLTut8/*.cpp)
-file (GLOB HDRS SDLTut8/*.h SDLTut8/*.hpp)
+file (GLOB SRCS sdl-collision-events-src/*.c sdl-collision-events-src/*.cpp)
+file (GLOB HDRS sdl-collision-events-src/*.h sdl-collision-events-src/*.hpp)
 
 link_directories(
 )
