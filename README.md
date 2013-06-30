@@ -8,7 +8,7 @@ then move the folders maps/ tilesets/ and the file yoshi.png to build/. Then com
 
 
 Note on SDL2: 
-not in repos yes so you will probably have to build from scratch. There are pre build binaries for windows at http://www.libsdl.org/tmp/download-2.0.php
-you will also need SDL2_image wich can be aquired here. http://www.libsdl.org/tmp/SDL_image/. 
+not in repos yes so you will probably have to build from scratch. There are pre build binaries for windows and both bin and source can be found at http://www.libsdl.org/tmp/download-2.0.php
+You will also need SDL2_image wich can be aquired here. http://www.libsdl.org/tmp/SDL_image/. 
 
  
