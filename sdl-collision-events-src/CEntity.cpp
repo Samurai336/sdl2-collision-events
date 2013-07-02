@@ -131,6 +131,7 @@ void CEntity::OnAnimate() {
 
 //------------------------------------------------------------------------------
 bool CEntity::OnCollision(CEntity* Entity) {
+	return false; 
 }
 
 

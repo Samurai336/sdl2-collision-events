@@ -37,21 +37,24 @@ bool CApp::OnInit()
     }
 	*/ 
 
-    if(CArea::AreaControl.OnLoad("./maps/1.area", Surf_Display ) == false) {
+
+	 
+    if(CArea::AreaControl.OnLoad("assets/maps/1.area", Surf_Display ) == false) {
 
 	printf("failed to Load Map"); 
     	return false;
     }
+	
 
     //SDL_EnableKeyRepeat(1, SDL_DEFAULT_REPEAT_INTERVAL / 3);
 
-    if(Player.OnLoad("yoshi.png", 64, 64, 8, Surf_Display) == false) {
+    if(Player.OnLoad("./assets/yoshi.png", 64, 64, 8, Surf_Display) == false) {
 	
 	printf("failed to Load Yoshi"); 
     	return false;
     }
 
-    if(Player2.OnLoad("yoshi.png", 64, 64, 8, Surf_Display) == false) {
+    if(Player2.OnLoad("./assets/yoshi.png", 64, 64, 8, Surf_Display) == false) {
 
 	printf("failed to Load Yoshi"); 
     	return false;

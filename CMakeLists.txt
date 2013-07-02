@@ -17,7 +17,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 set (Build_Dir_OK "TRUE")
 string (REGEX MATCH "^${CMAKE_SOURCE_DIR}" In_Sub_Dir ${CMAKE_BINARY_DIR})
 if (In_Sub_Dir)
-  string (REGEX MATCH "^${CMAKE_SOURCE_DIR}/build" In_Build_Dir ${CMAKE_BINARY_DIR})
+  string (REGEX MATCH "^${CMAKE_SOURCE_DIR}" In_Build_Dir ${CMAKE_BINARY_DIR})
   if (NOT In_Build_Dir)
     set (Build_Dir_OK "FALSE")
   endif ()
@@ -68,7 +68,7 @@ target_link_libraries(${App_Name}
 #################################################################3
 
 
-option(Option_SDL_Dev "" OFF)
+option(Option_SDL_Dev "" ON)
 
 if (Option_SDL_Dev) 
 	find_package(SDL2)
@@ -94,8 +94,10 @@ if (Option_SDL_Dev)
 	
 endif(Option_SDL_Dev) 
 
+#message("${CMAKE_SOURCE_DIR}/assets")
+#message("${CMAKE_BINARY_DIR}")
 
-
+file(COPY "${CMAKE_SOURCE_DIR}/assets" DESTINATION "${CMAKE_BINARY_DIR}")
 
 
 
