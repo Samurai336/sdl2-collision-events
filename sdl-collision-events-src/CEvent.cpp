@@ -41,12 +41,12 @@ void CEvent::OnEvent(SDL_Event* Event) {
 		*/
 
 		case SDL_KEYDOWN: {
-			OnKeyDown(Event->key.keysym.sym,KMOD_NONE,Event->key.keysym.unicode);
+			OnKeyDown(Event->key.keysym.sym,KMOD_NONE,Event->key.keysym.mod);
 			break;
 		}
 
 		case SDL_KEYUP: {
-			OnKeyUp(Event->key.keysym.sym,KMOD_NONE,Event->key.keysym.unicode);
+			OnKeyUp(Event->key.keysym.sym,KMOD_NONE,Event->key.keysym.mod);
 			break;
 		}
 
